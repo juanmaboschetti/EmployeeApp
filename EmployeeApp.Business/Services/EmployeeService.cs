@@ -17,7 +17,7 @@ namespace EmployeeApp.Business.Services
             this._employeeRepository = employeeRepository;
         }
 
-        public async Task<IEmployee> GetEmployee(int Id)
+        public async Task<IEmployeeDto> GetEmployee(int Id)
         {
             var response = await this._employeeRepository.GetEmployeeList();
             var employee = response.FirstOrDefault(x => x.Id == Id);
@@ -29,9 +29,9 @@ namespace EmployeeApp.Business.Services
             return null;
         }
 
-        public async Task<IEnumerable<IEmployee>> GetEmployees()
+        public async Task<IEnumerable<IEmployeeDto>> GetEmployees()
         {
-            var employeesList = new List<IEmployee>();
+            var employeesList = new List<IEmployeeDto>();
             foreach(var employee in await this._employeeRepository.GetEmployeeList())
             {
                 var factory = GetEmployeeFactory(employee);

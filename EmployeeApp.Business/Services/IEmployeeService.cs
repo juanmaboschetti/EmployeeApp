@@ -6,8 +6,8 @@ namespace EmployeeApp.Business.Services
 {
     public interface IEmployeeService
     {
-        public Task<IEnumerable<IEmployee>> GetEmployees();
+        public Task<IEnumerable<IEmployeeDto>> GetEmployees();
 
-        public Task<IEmployee> GetEmployee(int Id);
+        public Task<IEmployeeDto> GetEmployee(int Id);
     }
 }

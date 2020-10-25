@@ -19,9 +19,9 @@ namespace EmployeeApp.Business.Factory
             this._roleDescription = roleDescription;
             this._roleName = roleName;
         }
-        public override IEmployee GetEmployee()
+        public override IEmployeeDto GetEmployee()
         {
-            return new HourlySalaryEmployee(_id, _hourlySalary, _name, _roleId, _roleDescription, _roleName );
+            return new HourlySalaryEmployeeDto(_id, _hourlySalary, _name, _roleId, _roleDescription, _roleName );
         }
     }
 }

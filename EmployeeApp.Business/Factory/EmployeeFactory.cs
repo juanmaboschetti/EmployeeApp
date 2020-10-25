@@ -4,6 +4,6 @@ namespace EmployeeApp.Business.Factory
 {
     public abstract class EmployeeFactory
     {
-        public abstract IEmployee GetEmployee();
+        public abstract IEmployeeDto GetEmployee();
     }
 }
