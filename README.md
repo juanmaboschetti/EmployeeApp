@@ -1,5 +1,5 @@
 # EmployeeApp
-This App is used to return a display a list of employees.
+This App is used to display a list of employees.
 
 # Usage
 -Clone the repository and open it with Visual Studio.  
