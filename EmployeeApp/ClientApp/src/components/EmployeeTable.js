@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {useState, useRef } from 'react';
 import {
     InputGroup,
     InputGroupAddon,
@@ -7,15 +7,10 @@ import {
     Table
    } from 'reactstrap';
    import '../custom.css';
-export default function EmployeeTable(props) {
+export default function EmployeeTable() {
 
 const inputEl = useRef(null);
 const [employees, setEmployees] = useState(null);
-const [isLoading, setisLoading] = useState(true);
-useEffect(async () => {
-    await fetchEmployees('api/employees');
-    setisLoading(false);
-}, [])
 
 const fetchEmployees = async (url) => {
     await fetch(url).then(async(response) => {
@@ -36,10 +31,9 @@ const  handlerOnSearchButtonClick = async (e) =>{
     fetchEmployees(url);
 }
     return (
-        isLoading ? <p><em>Loading...</em></p> :
         <>
-        <InputGroup className={"search-control"}>
-        <InputGroupAddon addonType="prepend"><Button onClick={(e) =>handlerOnSearchButtonClick(e)}>Search</Button></InputGroupAddon>
+        <InputGroup className={"search"}>
+        <InputGroupAddon addonType="prepend"><Button onClick={(e) =>handlerOnSearchButtonClick(e)}>Get Employees</Button></InputGroupAddon>
         <Input innerRef={inputEl} />
         </InputGroup>
         <Table bordered>
@@ -54,7 +48,7 @@ const  handlerOnSearchButtonClick = async (e) =>{
             </tr>
           </thead>
           <tbody>
-            {employees.map(employee =>
+            {employees && employees.map(employee =>
               <tr key={employee.id}>
                 <td>{employee.id}</td>
                 <td>{employee.name}</td>
